@@ -19,7 +19,7 @@ assert singleTrue(configInputs), "More than one of Cloud, Zarr and VCF input are
 # Load metadata 
 if cloud:
     import malariagen_data
-    ag3 = malariagen_data.Ag3()
+    ag3 = malariagen_data.Ag3(pre=True)
     metadata = ag3.sample_metadata(sample_sets=ag3_sample_sets)
 else:
     metadata = pd.read_csv(config['metadata'], sep="\t")
@@ -44,7 +44,7 @@ include: "rules/utility.smk"
 include: "rules/qc.smk"
 include: "rules/PopulationStructure.smk"
 include: "rules/selection.smk"
-#include: "rules/karyotype.smk"
+include: "rules/karyotype.smk"
 
 ### plan for inputs 
 # if Zarr present and VCF not, write lightweight VCF to file.

@@ -186,13 +186,13 @@ def windowedPlot(statName, cohortText, cohortNoSpaceText, values, midpoints, pre
 
     
 
-inversionDict = {"2La" : ("2L", "karyotype/2La_targets.txt"),
-                 "2Rj" : ("2R", "karyotype/2Rj_targets.txt"),
-                 "2Rb" : ("2R", "karyotype/2Rb_targets.txt"),
-                 "2Rc_col" : ("2R", "karyotype/2Rc_col_targets.txt"),
-                 "2Rc_gam" : ("2R", "karyotype/2Rc_gam_targets.txt"),
-                 "2Rd" : ("2R", "karyotype/2Rd_targets.txt"),
-                 "2Ru" : ("2R", "karyotype/2Ru_targets.txt")}
+inversionDict = {"2La" : ("2L", "resources/karyotype/2La_targets.txt"),
+                 "2Rj" : ("2R", "resources/karyotype/2Rj_targets.txt"),
+                 "2Rb" : ("2R", "resources/karyotype/2Rb_targets.txt"),
+                 "2Rc_col" : ("2R", "resources/karyotype/2Rc_col_targets.txt"),
+                 "2Rc_gam" : ("2R", "resources/karyotype/2Rc_gam_targets.txt"),
+                 "2Rd" : ("2R", "resources/karyotype/2Rd_targets.txt"),
+                 "2Ru" : ("2R", "resources/karyotype/2Ru_targets.txt")}
 
 
 def import_inversion(inversion):

@@ -38,7 +38,7 @@ rule G12:
     This rule performs G12 selection scans on each specified population
     """
     input:
-        nb = "workflow/notebooks/GarudsStatistics.ipynb"
+        nb = "workflow/notebooks/GarudsStatistics.ipynb",
         genotypes = getZarrArray(type_="Genotypes", cloud=cloud),
         positions = getZarrArray(type_='Positions', cloud=cloud),
         siteFilters = getZarrArray(type_ = "SiteFilters", cloud=cloud)
@@ -105,7 +105,7 @@ rule H12:
     This rule performs H12 selection scans on each specified population
     """
     input:
-        nb = "workflow/notebooks/GarudsStatistics.ipynb"
+        nb = "workflow/notebooks/GarudsStatistics.ipynb",
         haplotypes = getZarrArray(type_="Haplotypes", cloud=cloud),
         positions = getZarrArray(type_='Positions', cloud=cloud),
         siteFilters = getZarrArray(type_ = "SiteFilters", cloud=cloud)

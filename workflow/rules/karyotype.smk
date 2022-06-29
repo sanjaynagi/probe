@@ -18,4 +18,4 @@ rule karyotype:
         cloud = cloud,
         ag3_sample_sets = ag3_sample_sets
     script:
-        "../scripts/karyotype.py"
+        "../scripts/Karyotype.py"

@@ -35,7 +35,7 @@ vois = vois.sort_values(['contig', 'pos'])
 # Load metadata 
 if cloud:
     import malariagen_data
-    ag3 = malariagen_data.Ag3()
+    ag3 = malariagen_data.Ag3(pre=True)
     metadata = ag3.sample_metadata(sample_sets=ag3_sample_sets)
 else:
     metadata = pd.read_csv(snakemake.params['metadata'], sep="\t")

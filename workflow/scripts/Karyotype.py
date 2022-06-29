@@ -11,6 +11,7 @@ sys.stderr = open(snakemake.log[0], "w")
 import probetools as probe
 import numpy as np
 import pandas as pd
+import allel
 
 
 cloud = snakemake.params['cloud']
@@ -20,7 +21,7 @@ ag3_sample_sets = snakemake.params['ag3_sample_sets']
 # Load metadata 
 if cloud:
     import malariagen_data
-    ag3 = malariagen_data.Ag3()
+    ag3 = malariagen_data.Ag3(pre=True)
     metadata = ag3.sample_metadata(sample_sets=ag3_sample_sets)
 
     genotypePath = []
@@ -41,7 +42,7 @@ for inversion in probe.inversionDict.keys():
     chrom = probe.inversionDict[inversion][0]
 
     if cloud:
-        snps = allel.GenotypeDaskArray(ag3.snp_genotypes(region=chrom, sample_sets=my_sample_set))
+        snps = allel.GenotypeDaskArray(ag3.snp_genotypes(region=chrom, sample_sets=ag3_sample_sets))
         pos = allel.SortedIndex(ag3.snp_sites(region=chrom, field='POS'))
     else:
         snps, pos = probe.loadZarrArrays(genotypePath, positionsPath, siteFilterPath=siteFilterPath, haplotypes=False, cloud=cloud, contig=contig)

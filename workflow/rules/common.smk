@@ -178,6 +178,16 @@ def getSelectedOutputs(wildcards):
             )
         )
 
+    if config['karyotype']['activate']:
+        selected_input.extend(
+            expand(
+            [
+                "results/{dataset}_karyotypes.tsv",
+            ],    
+                dataset=config['dataset'], 
+            )
+        )
+
     return(selected_input)
 
 

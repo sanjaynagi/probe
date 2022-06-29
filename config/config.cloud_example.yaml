@@ -1,7 +1,7 @@
 # Sample metadata sheet
 metadata: #"config/metadata.tsv"
-metadataCohortColumns: 
-      - 'aim_species'
+metadataCohortColumns:  ['cohort_admin1_year']
+
 
 
 # for reference, if using cloud access
@@ -16,13 +16,14 @@ metadataCohortColumns:
 
 
 # Dataset name
-dataset: 'ag3_ug'
+dataset: 'drc'
 
 # If no VCF input is provided, VCFs will be written from the Zarr files for NgsRelate
 # If no Zarr input is provided, Zarr arrays will be written from the VCF files
 VObsCloud:
       activate: True
-      sample_sets: ['AG1000G-UG']
+      sample_sets: ['AG1000G-CD', '1264-VO-CD-WATSENGA-VMF00161', '1264-VO-CD-WATSENGA-VMF00164']
+      
 Zarr:
       activate: False
       Genotypes: 
@@ -41,19 +42,19 @@ contigs: ['2L', '2R', '3L', '3R', 'X']
 PopulationStructure:
       PCA:
             activate: False
-            colourColumns: ['aim_species']
-  #    SummaryStatistics:
-   #         activate : False
+            colourColumns: ['aim_species', 'location']
+      SummaryStatistics:
+            activate : False
    #   fineStructure:
     #        activate: True
       Relatedness:
             activate: False
       f2_variants: 
-            activate: False     # Doubletons
+            activate: False    # Doubletons
 
 SpatialAnalyses:
       Fst_V_GeographicDistance:
-            activate: False
+            activate: 
             minimumLocationSampleSize: 5
 
 Selection:
@@ -85,7 +86,7 @@ Selection:
 
 # Run analysis with compkaryo to determine proportion % karyotype
 karyotype:
-        activate: False
+        activate: True
         inversions:
              - "2La"
              - "2Rj"
